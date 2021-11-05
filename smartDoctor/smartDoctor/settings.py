@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2lbq(@&mh0w80)z94t&zrq86*mxjr^6t_fp6emp^!$eop!3tau
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'accounts',
+    'Doctor',
+    'patient',
+    'chember',
+    'django_extensions',
+  
+
 ]
 
 MIDDLEWARE = [
@@ -68,6 +76,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'smartDoctor.wsgi.application'
+AUTH_USER_MODEL ='accounts.newUsers'
 
 
 # Database
@@ -126,3 +135,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
