@@ -16,7 +16,7 @@ class DoctorInfo(models.Model):
     image = models.FileField(_("Image"), upload_to=upload_to, max_length=100)
 
 class LoaclMedicine(models.Model):
-    medicineName = models.CharField(_("Medicine Name0"), max_length=500)
+    medicineName = models.CharField(_("Medicine Name"), max_length=500)
     medicineType = models.CharField(_("Medicine Type"), max_length=250)
     companyNem = models.CharField(_("Medicine Name"), max_length=500)
 

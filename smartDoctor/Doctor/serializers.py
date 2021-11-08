@@ -5,7 +5,7 @@ from .models import DoctorInfo, LoaclMedicine, LocalTest
 class DoctorInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = DoctorInfo
-        fields = ['doctorName', 'doctorTitle', 'phoneNumber', 'speciality', 'blog', 'image']
+        fields = ['doctorName', 'doctorTitle', 'phoneNumber', 'speciality', 'blog']
     
 
 class LoaclMedicineSerializer(serializers.ModelSerializer):

@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('frontend.urls')),
     path("auth/", include('accounts.urls')),
+    path('chember/', include('chember.urls')),  
+    path('doctor/', include('Doctor.urls')), 
     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     

@@ -11,7 +11,7 @@ User = get_user_model()
 
 # Create Doctor 
 class CreateDoctorView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         serializer_data = CreateDoctorSerializer(data=request.data)
@@ -25,7 +25,7 @@ class CreateDoctorView(APIView):
 
 # Create Doctor 
 class CreateAssistanceView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         serializer_data = CreateAssistanceSerializer(data=request.data)
