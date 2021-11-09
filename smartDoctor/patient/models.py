@@ -7,14 +7,14 @@ User = get_user_model()
 class Patient(models.Model):
     chember = models.ForeignKey("chember.Chember", related_name="chember_patient", on_delete=models.CASCADE)
     name = models.CharField(max_length=500)
-    contactNumber = models.IntegerField(_("Contact Number"))
+    contactNumber = models.CharField(_("Contact Number"), max_length=50)
     age = models.IntegerField(_("Age"))
     gender = models.CharField(_("Gender"), max_length=50)
     date = models.DateTimeField(_("Date"), auto_now_add=True)
     
 
 class Prescription(models.Model):
-    patient = models.ForeignKey(Patient, related_name='patient_prescription', on_delete=models.CASCADE)
+    patient = models.OneToOneField(Patient, related_name='patient_prescription', on_delete=models.CASCADE)
     descrioption = models.CharField(_("Drescrioption"), max_length=50)
 
 class MedicineForPrescription(models.Model):
@@ -33,4 +33,4 @@ class History(models.Model):
     chember = models.ForeignKey('chember.Chember', related_name='chember_patient_history', on_delete=models.CASCADE)
     user = models.ForeignKey(User, related_name="history", on_delete=models.CASCADE)
     log = models.CharField(_("Log"), max_length=500)
-    date = models.DateTimeField(_("Date"),  auto_now_add=False)
+    date = models.DateTimeField(_("Date"),  auto_now_add=True)
